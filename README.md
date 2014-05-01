@@ -6,14 +6,14 @@ A quick reference cheat sheet for iOS developers.
 **Note**: The [Avocarrot](http://www.avocarrot.com) team will do its best to keep this cheatsheet updated but feel to send your pull requests if you want to add a new entry or edit something.
 
 ##Contents
-- Classes
-- Methods
-- Properties
-- Constants
-- NSString
-- NSArray
-- NSDictionary
-- Flow control statements
+- [Classes](#classes)
+- [Methods](#methods)
+- [Properties](#properties)
+- [Constants](#constants)
+- [NSString](#nsstring)
+- [NSArray](#nsarray)
+- [NSDictionary](#nsdictionary)
+- [Flow control statements](#flow-control-statements)
 
 
 ###Classes
