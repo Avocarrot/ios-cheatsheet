@@ -1,9 +1,9 @@
 iOS Cheatsheet
 ==============
 
-A quick reference cheat sheet for iOS developers. 
+A quick reference cheat sheet for iOS developers so that you turn coffee into code much faster:) 
 
-**Note**: The [Avocarrot](http://www.avocarrot.com) team will do its best to keep this cheatsheet updated but feel to send your pull requests if you want to add a new entry or edit something.
+**Note**: The [Avocarrot](http://www.avocarrot.com/?utm_source=github&utm_medium=ios-cheatsheet) team will do its best to keep this cheatsheet updated but feel free to send your pull requests if you want to add a new entry or edit something.
 
 ##Contents
 - [Classes](#classes)
@@ -125,14 +125,14 @@ This is not an actual constant because it defines a macro which replaces all occ
 ####Using const
 A better approach is to use ```const```.
 ```objC
-NSString *const kMyName = @"George";
+NSString *const kMyName = @"Clark";
 ```
 
 ####Static and extern
 
 If you know that the constant will only be available within it's implementation file, then you can use ```static```. Using ```static``` means that the constant will only be available in that file.
 ```objC
-static NSString * const kMyName = @"George";
+static NSString * const kMyName = @"Clark";
 ```
 
 If you want to have a constant global then you should use extern. 
@@ -143,7 +143,7 @@ extern NSString * const kMyName;
 
 ```objC
 //.m file
-NSString * const kMyName = @"George";
+NSString * const kMyName = @"Clark";
 ```
 
 ###NSString
