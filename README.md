@@ -434,33 +434,32 @@ Start sending delegate messages
 
 For more information see [Programming with Objective-C - Working with Blocks](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/WorkingwithBlocks/WorkingwithBlocks.html)
 
----
 
-To declare a block local variable:
+**To declare a block local variable:**
 
 ```
 returnType (^blockName)(parameterTypes) = ^returnType(parameters) {...};
 ```
 
-To declare a block property:
+**To declare a block property:**
 
 ```
 @property (nonatomic, copy) returnType (^blockName)(parameterTypes);
 ```
 
-To accept a block as a method parameter:
+**To accept a block as a method parameter:**
 
 ```
 - (void)aMethodThatTakesABlock:(returnType (^)(parameterTypes))blockName;
 ```
 
-To pass a block as an argument in a method call:
+**To pass a block as an argument in a method call:**
 
 ```
 [someObject someMethodThatTakesABlock: ^returnType (parameters) {...}];
 ```
 
-To define a block type:
+**To define a block type:**
 
 ```
 typedef returnType (^TypeName)(parameterTypes);
