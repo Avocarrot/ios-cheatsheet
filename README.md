@@ -8,13 +8,14 @@ A quick reference cheat sheet for iOS developers so that you turn coffee into co
 ##Contents
 - [Classes](#classes)
 - [Methods](#methods)
+- [Operators](#operators)
 - [Properties](#properties)
 - [Constants](#constants)
 - [NSString](#nsstring)
 - [NSArray](#nsarray)
 - [NSDictionary](#nsdictionary)
 - [Flow control statements](#flow-control-statements)
-
+- [Delegates](#delegates)
 
 ###Classes
 
@@ -84,6 +85,72 @@ Human * anObject = [[Human alloc] init];
 [anObject someMethod];
 [anObject someMethodWithArg1:arg1 andArg2:arg2];
 ``` 
+
+
+### Operators
+
+#### Arithmetic Operators
+
+Operator | Description
+:---: | :---:
++ | Addition
+- | Subtraction
+* | Multiplication
+/ | Division
+% | Modulo
+
+#### Comparison Operators
+
+Operator | Description
+:---: | :---:
+x == y |    Returns true if x is equal to y
+x > y | Returns true if x is greater than y
+x >= y |    Returns true if x is greater than or equal to y
+x < y | Returns true if x is less than y
+x <= y |    Returns true if x is less than or equal to y
+x != y |    Returns true if x is not equal to y
+
+
+#### Logical Operators
+
+Operator | Description
+:---: | :---:
+! | NOT
+&& | Logical AND
+&#124;&#124; | Logical OR
+
+#### Compound Assignment Operators
+
+Operator | Description
+:---: | :---:
+x += y |    Add x to y and place result in x
+x -= y |    Subtract y from x and place result in x
+x *= y |    Multiply x by y and place result in x
+x /= y |    Divide x by y and place result in x
+x %= y |    Perform Modulo on x and y and place result in x
+x &= y |    Assign to x the result of logical AND operation on x and y
+x |= y |    Assign to x the result of logical OR operation on x and y
+x ^= y |    Assign to x the result of logical Exclusive OR on x and y
+
+#### Bitwise Operators
+
+Operator | Description
+:---: | :---:
+& | Bitwise AND
+&#124; | Bitwise Inclusive OR
+^ | Exclusive OR
+~ | Bit inversion
+<< | Shift Left
+>> | Shift Right
+
+#### Other operators
+
+Operator | Description
+:---: | :---:
+() | Cast
+? : | Ternary
+& | Memory Address
+* | Pointer
 
 
 ###Properties
@@ -270,4 +337,92 @@ switch (aLabel)
         // Execute this if matched
         break;
 }
+```
+
+
+###Delegates
+
+Delegates are a design pattern. A delegate allows one object to send messages to another object when an event happens. Check out [Apple docs](https://developer.apple.com/library/ios/documentation/general/conceptual/CocoaEncyclopedia/DelegatesandDataSources/DelegatesandDataSources.html): 
+
+####Become the delegate of a framework class
+
+**Step 1**
+
+Declare that your class adopts the protocol in the class definition in the angled brackets after the class/superclass name.
+
+```objC
+//MyTableViewController.h
+
+@interface MyTableViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+
+@end
+```
+
+**Step 2**
+
+Set your object as the delegate.
+
+```objC
+//MyTableViewController.m
+
+[tableView setDelegate:self];
+
+@end
+```
+
+**Step 3**
+
+Implement the delegate methods.
+
+
+####Implement your own delegate for a custom class
+
+**Step 1**
+
+Declare the protocol methods
+
+```objC
+// Superman.h
+#import <Foundation/Foundation.h>
+
+@protocol SupermanDelegate <NSObject>
+
+- (void)dodgeBullet;
+- (void)seeThroughThings;
+- (void)fly;
+
+@optional
+- (void)eat;
+
+@end
+
+@interface Superman : NSObject
+
+// Create a property for the delegate reference
+@property (nonatomic, weak) id <SupermanDelegate> delegate;
+
+// Define other methods and properties
+
+@end
+
+```
+
+**Step 2**
+
+Set the delegate object
+
+```objC
+// Superman.m
+
+[self setDelegate:anObject];
+```
+
+**Step 3**
+
+Start sending delegate messages
+
+```objC
+// Superman.m
+
+[self.delegate fly];
 ```
