@@ -62,7 +62,7 @@ Human * anObject = [[Human alloc] init];
 - (void)foo;  
 
 //Returns an NSString object and takes one argument of type NSObject 
-- (NSSring *)fooWithArgument:(NSObject *)bar; 
+- (NSString *)fooWithArgument:(NSObject *)bar; 
 
 //Takes two arguments one of type NSObject and a second one of type NSString 
 - (void)fooWithArgument:(NSObject *)bar andArgument:(NSString *)baz; 
@@ -74,7 +74,7 @@ Human * anObject = [[Human alloc] init];
 ####Implementing methods
 
 ```objC
-- (NSSring *)fooWithArgument:(NSObject *)bar{
+- (NSString *)fooWithArgument:(NSObject *)bar{
     //Do something here
     return retValue;
 }
