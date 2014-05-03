@@ -229,8 +229,9 @@ NSString *fullName = [NSString stringWithFormat:  @"My full name is %@ %@",  fir
 Specifier | Description
 :---: | ---
 %@  | Objective-C object
-%lx, (long) | NSInteger, CFIndex
-%lx, (unsigned long)  | NSUInteger
+%zd | NSInteger
+%lx, (long) | CFIndex
+%tu | NSUInteger
 %i  | int
 %u  | unsigned int
 %hi  | short
