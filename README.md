@@ -229,7 +229,7 @@ Specifier | Description
 :---: | ---
 %@  | Objective-C object
 %zd | NSInteger
-%lx, (long) | NSInteger, CFIndex
+%lx, (long) | CFIndex
 %tu | NSUInteger
 %i  | int
 %u  | unsigned int
