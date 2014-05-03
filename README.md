@@ -14,7 +14,7 @@ A quick reference cheat sheet for iOS developers so that you turn coffee into co
 - [NSString](#nsstring)
 - [NSArray](#nsarray)
 - [NSDictionary](#nsdictionary)
-- [Enum Types](#enum-types)
+- [Enumerated Types](#enumerated-types)
 - [Flow control statements](#flow-control-statements)
 - [Delegates](#delegates)
 - [Blocks](#blocks)
