@@ -14,6 +14,7 @@ A quick reference cheat sheet for iOS developers so that you turn coffee into co
 - [NSString](#nsstring)
 - [NSArray](#nsarray)
 - [NSDictionary](#nsdictionary)
+- [Enumerated Types](#enumerated-types)
 - [Flow control statements](#flow-control-statements)
 - [Delegates](#delegates)
 - [Blocks](#blocks)
@@ -276,6 +277,26 @@ NSLog(@"Superman's first name is %@", person[@"firstname"]);
 NSLog(@"Superman's first name is %@", [person objectForKey:@"firstname"]);
 ```
 
+
+###Enumerated Types
+
+####Apple's Examples
+```objC
+typedef enum {
+   UIButtonTypeCustom = 0,
+   UIButtonTypeSystem,
+   UIButtonTypeDetailDisclosure,
+   UIButtonTypeInfoLight,
+   UIButtonTypeInfoDark,
+   UIButtonTypeContactAdd,
+   UIButtonTypeRoundedRect,
+} UIButtonType;
+```
+
+####Using an enumerated type
+```objC
+UIButton *button = [UIButton buttonWithType:UIButtonTypeInfoLight];
+```
 
 ###Flow control statements
 
