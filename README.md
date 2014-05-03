@@ -14,8 +14,10 @@ A quick reference cheat sheet for iOS developers so that you turn coffee into co
 - [NSString](#nsstring)
 - [NSArray](#nsarray)
 - [NSDictionary](#nsdictionary)
+- [Enumerated Types](#enumerated-types)
 - [Flow control statements](#flow-control-statements)
 - [Delegates](#delegates)
+- [Blocks](#blocks)
 
 ###Classes
 
@@ -62,7 +64,7 @@ Human * anObject = [[Human alloc] init];
 - (void)foo;  
 
 //Returns an NSString object and takes one argument of type NSObject 
-- (NSSring *)fooWithArgument:(NSObject *)bar; 
+- (NSString *)fooWithArgument:(NSObject *)bar; 
 
 //Takes two arguments one of type NSObject and a second one of type NSString 
 - (void)fooWithArgument:(NSObject *)bar andArgument:(NSString *)baz; 
@@ -74,7 +76,7 @@ Human * anObject = [[Human alloc] init];
 ####Implementing methods
 
 ```objC
-- (NSSring *)fooWithArgument:(NSObject *)bar{
+- (NSString *)fooWithArgument:(NSObject *)bar{
     //Do something here
     return retValue;
 }
@@ -227,8 +229,9 @@ NSString *fullName = [NSString stringWithFormat:  @"My full name is %@ %@",  fir
 Specifier | Description
 :---: | ---
 %@  | Objective-C object
-%lx, (long) | NSInteger, CFIndex
-%lx, (unsigned long)  | NSUInteger
+%zd | NSInteger
+%lx, (long) | CFIndex
+%tu | NSUInteger
 %i  | int
 %u  | unsigned int
 %hi  | short
@@ -275,6 +278,26 @@ NSLog(@"Superman's first name is %@", person[@"firstname"]);
 NSLog(@"Superman's first name is %@", [person objectForKey:@"firstname"]);
 ```
 
+
+###Enumerated Types
+
+####Apple's Examples
+```objC
+typedef enum {
+   UIButtonTypeCustom = 0,
+   UIButtonTypeSystem,
+   UIButtonTypeDetailDisclosure,
+   UIButtonTypeInfoLight,
+   UIButtonTypeInfoDark,
+   UIButtonTypeContactAdd,
+   UIButtonTypeRoundedRect,
+} UIButtonType;
+```
+
+####Using an enumerated type
+```objC
+UIButton *button = [UIButton buttonWithType:UIButtonTypeInfoLight];
+```
 
 ###Flow control statements
 
@@ -426,3 +449,42 @@ Start sending delegate messages
 
 [self.delegate fly];
 ```
+
+### Blocks
+
+> Blocks are a language-level feature added to C, Objective-C and C++, which allow you to create distinct segments of code that can be passed around to methods or functions as if they were values. 
+
+For more information see [Programming with Objective-C - Working with Blocks](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/WorkingwithBlocks/WorkingwithBlocks.html)
+
+
+**To declare a block local variable:**
+
+```
+returnType (^blockName)(parameterTypes) = ^returnType(parameters) {...};
+```
+
+**To declare a block property:**
+
+```
+@property (nonatomic, copy) returnType (^blockName)(parameterTypes);
+```
+
+**To accept a block as a method parameter:**
+
+```
+- (void)aMethodThatTakesABlock:(returnType (^)(parameterTypes))blockName;
+```
+
+**To pass a block as an argument in a method call:**
+
+```
+[someObject someMethodThatTakesABlock: ^returnType (parameters) {...}];
+```
+
+**To define a block type:**
+
+```
+typedef returnType (^TypeName)(parameterTypes);
+TypeName blockName = ^returnType(parameters) {...};
+```
+
