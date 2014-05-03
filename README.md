@@ -162,7 +162,7 @@ Operator | Description
 
 Attribute Type | Purpose
 :---: | ---
-strong  | Ccreates an owning relationship to the object that is assigned to the property
+strong  | Creates an owning relationship to the object that is assigned to the property
 weak | Creates a non-owning relationship 
 assign | Normal assign, doesn’t perform any kind of memory-management
 copy | Make an immutable copy of the object upon assignment. 
@@ -241,7 +241,7 @@ Specifier | Description
 ####Quick examples
 ```objC
 //Create an array
-NSMutableArray *anArray = @[@"Clark Kent", @"Lois Lane"]; 
+NSMutableArray *anArray = [@[@"Clark Kent", @"Lois Lane"] mutableCopy];
 
 //Add new items
 [anArray addObject:@"Lex Luthor"];
