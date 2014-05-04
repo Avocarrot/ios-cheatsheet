@@ -282,6 +282,9 @@ NSLog(@"Superman's first name is %@", [person objectForKey:@"firstname"]);
 ###Enumerated Types
 
 ####Apple's Examples
+
+Each enumerate is given a corresponding integer value, so
+
 ```objC
 typedef enum {
    UIButtonTypeCustom = 0,
@@ -294,9 +297,44 @@ typedef enum {
 } UIButtonType;
 ```
 
+is the same as
+
+```objC
+typedef enum {
+   UIButtonTypeCustom = 0,
+   UIButtonTypeSystem = 1,
+   UIButtonTypeDetailDisclosure = 2,
+   UIButtonTypeInfoLight = 3,
+   UIButtonTypeInfoDark = 4,
+   UIButtonTypeContactAdd = 5,
+   UIButtonTypeRoundedRect = 6,
+} UIButtonType;
+```
+
+Explicitly defining the first enumerate's value is not required and it will default to 0.
+
 ####Using an enumerated type
 ```objC
 UIButton *button = [UIButton buttonWithType:UIButtonTypeInfoLight];
+```
+
+Or create a variable to pass into the methods like so...
+
+```objC
+UIButtonType myButtonType = UIButtonTypeCustom;
+UIButton *myButton = [UIButton buttonWithType:myButtonType];
+```
+
+Because they are not objects, you must print enumerated types as integers
+
+```objC
+UIButtonType myButtonType = UIButtonTypeRoundedRect;
+
+// Bad, will give you a warning and might even crash
+NSLog(@"%@", myButtonType);
+
+// Good, will properly print the value as an integer
+NSLog(@"%d", myButtonType);
 ```
 
 ###Flow control statements
