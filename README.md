@@ -259,6 +259,12 @@ for (NSString *person in anArray) {
 
 //Access item with index
 NSString *superman = anArray[0];
+
+//Remove Object @"Clark Kent"
+[anArray removeObject:@"Clark Kent"];
+        
+//Remove the first Object
+[anArray removeObjectAtIndex:0];
 ```
 
 ###NSDictionary
