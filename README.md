@@ -302,29 +302,29 @@ NSLog(@"Superman's first name is %@", [person objectForKey:@"firstname"]);
 Each enumerate is given a corresponding integer value, so
 
 ```objC
-typedef enum {
-   UIButtonTypeCustom = 0,
+typedef NS_ENUM(NSInteger, UIButtonType) {
+   UIButtonTypeCustom,
    UIButtonTypeSystem,
    UIButtonTypeDetailDisclosure,
    UIButtonTypeInfoLight,
    UIButtonTypeInfoDark,
    UIButtonTypeContactAdd,
-   UIButtonTypeRoundedRect,
-} UIButtonType;
+   UIButtonTypeRoundedRect
+};
 ```
 
 is the same as
 
 ```objC
-typedef enum {
+typedef NS_ENUM(NSInteger, UIButtonType) {
    UIButtonTypeCustom = 0,
    UIButtonTypeSystem = 1,
    UIButtonTypeDetailDisclosure = 2,
    UIButtonTypeInfoLight = 3,
    UIButtonTypeInfoDark = 4,
    UIButtonTypeContactAdd = 5,
-   UIButtonTypeRoundedRect = 6,
-} UIButtonType;
+   UIButtonTypeRoundedRect = 6
+};
 ```
 
 Explicitly defining the first enumerate's value is not required and it will default to 0.
@@ -502,6 +502,14 @@ Start sending delegate messages
 // Superman.m
 
 [self.delegate fly];
+```
+
+For the delegate methods that are optional, it is wise to check if the delegate can respond to that method before firing.
+
+```objC
+if ([self.delegate respondsToSelector:@selector(eat)]) {
+  [self.delegate eat];
+}
 ```
 
 ### Blocks
