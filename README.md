@@ -272,16 +272,26 @@ NSString *superman = anArray[0];
 ####Quick examples
 ```objC
 //Create a dictionary
-NSDictionary *person = @{
-    @"firstname" : @"Clark",
-    @"lastname" : @"Kent",
-    @"age" : [NSNumber numberWithInt:35]
-};
-
+NSMutableDictionary *person = [@{
+                             @"firstname" : @"Clark",
+                             @"lastname" : @"Kent",
+                             @"age" : [NSNumber numberWithInt:35]
+                             } mutableCopy];
+    
 //Access values 
 NSLog(@"Superman's first name is %@", person[@"firstname"]);
 //or
 NSLog(@"Superman's first name is %@", [person objectForKey:@"firstname"]);
+
+//Find number of items in dicitonary
+[person count];
+
+// Add an object to a dictionary
+[person setObject:@"job" forKey:@"teacher"];
+    
+//Remove an object to a dictionary
+[person removeObjectForKey:@"firstname"];
+
 ```
 
 
