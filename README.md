@@ -15,10 +15,12 @@ A quick reference cheat sheet for iOS developers so that you turn coffee into co
 - [Flow control statements](#flow-control-statements)
 - [Delegates](#delegates)
 - [Blocks](#blocks)
+
 ###Class Specific
 - [NSString](#nsstring)
 - [NSArray](#nsarray)
 - [NSDictionary](#nsdictionary)
+
 ###C Related Code
 - [Enumerated Types](#enumerated-types)
 
