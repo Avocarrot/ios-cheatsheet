@@ -6,18 +6,23 @@ A quick reference cheat sheet for iOS developers so that you turn coffee into co
 **Note**: The [Avocarrot](http://www.avocarrot.com/?utm_source=github&utm_medium=ios-cheatsheet) team will do its best to keep this cheatsheet updated but feel free to send your pull requests if you want to add a new entry or edit something.
 
 ##Contents
+###Objective-C Basics
 - [Classes](#classes)
 - [Methods](#methods)
 - [Operators](#operators)
 - [Properties](#properties)
 - [Constants](#constants)
-- [NSString](#nsstring)
-- [NSArray](#nsarray)
-- [NSDictionary](#nsdictionary)
-- [Enumerated Types](#enumerated-types)
 - [Flow control statements](#flow-control-statements)
 - [Delegates](#delegates)
 - [Blocks](#blocks)
+###Class Specific
+- [NSString](#nsstring)
+- [NSArray](#nsarray)
+- [NSDictionary](#nsdictionary)
+###C Related Code
+- [Enumerated Types](#enumerated-types)
+
+##Objective-C Basics
 
 ###Classes
 
@@ -213,144 +218,6 @@ extern NSString * const kMyName;
 ```objC
 //.m file
 NSString * const kMyName = @"Clark";
-```
-
-###NSString
-
-####Quick examples
-```objC
-NSString *firstName = @"Clark"; 
-NSString *lastName = @"Kent"; 
-NSString *fullName = [NSString stringWithFormat:  @"My full name is %@ %@",  firstName, lastName]; 
-```
-
-####NSString format specifier
-
-Specifier | Description
-:---: | ---
-%@  | Objective-C object
-%zd | NSInteger
-%lx, (long) | CFIndex
-%tu | NSUInteger
-%i  | int
-%u  | unsigned int
-%hi  | short
-%hu  | unsigned short
-%%  | Literal %
-
-
-###NSArray
-
-####Quick examples
-```objC
-//Create an array
-NSMutableArray *anArray = [@[@"Clark Kent", @"Lois Lane"] mutableCopy];
-
-//Add new items
-[anArray addObject:@"Lex Luthor"];
-
-//Find array length
-NSLog(@"Array has %d items", [anArray count]); 
-
-//Iterate over array items
-for (NSString *person in anArray) { 
- NSLog(@"Person: %@", person); 
-} 
-
-//Access item with index
-NSString *superman = anArray[0];
-
-//Remove Object @"Clark Kent"
-[anArray removeObject:@"Clark Kent"];
-        
-//Remove the first Object
-[anArray removeObjectAtIndex:0];
-```
-
-###NSDictionary
-
-####Quick examples
-```objC
-//Create a dictionary
-NSMutableDictionary *person = [@{
-                             @"firstname" : @"Clark",
-                             @"lastname" : @"Kent",
-                             @"age" : [NSNumber numberWithInt:35]
-                             } mutableCopy];
-    
-//Access values 
-NSLog(@"Superman's first name is %@", person[@"firstname"]);
-//or
-NSLog(@"Superman's first name is %@", [person objectForKey:@"firstname"]);
-
-//Find number of items in dicitonary
-[person count];
-
-// Add an object to a dictionary
-[person setObject:@"job" forKey:@"teacher"];
-    
-//Remove an object to a dictionary
-[person removeObjectForKey:@"firstname"];
-
-```
-
-
-###Enumerated Types
-
-####Apple's Examples
-
-Each enumerate is given a corresponding integer value, so
-
-```objC
-typedef NS_ENUM(NSInteger, UIButtonType) {
-   UIButtonTypeCustom,
-   UIButtonTypeSystem,
-   UIButtonTypeDetailDisclosure,
-   UIButtonTypeInfoLight,
-   UIButtonTypeInfoDark,
-   UIButtonTypeContactAdd,
-   UIButtonTypeRoundedRect
-};
-```
-
-is the same as
-
-```objC
-typedef NS_ENUM(NSInteger, UIButtonType) {
-   UIButtonTypeCustom = 0,
-   UIButtonTypeSystem = 1,
-   UIButtonTypeDetailDisclosure = 2,
-   UIButtonTypeInfoLight = 3,
-   UIButtonTypeInfoDark = 4,
-   UIButtonTypeContactAdd = 5,
-   UIButtonTypeRoundedRect = 6
-};
-```
-
-Explicitly defining the first enumerate's value is not required and it will default to 0.
-
-####Using an enumerated type
-```objC
-UIButton *button = [UIButton buttonWithType:UIButtonTypeInfoLight];
-```
-
-Or create a variable to pass into the methods like so...
-
-```objC
-UIButtonType myButtonType = UIButtonTypeCustom;
-UIButton *myButton = [UIButton buttonWithType:myButtonType];
-```
-
-Because they are not objects, you must print enumerated types as integers
-
-```objC
-UIButtonType myButtonType = UIButtonTypeRoundedRect;
-
-// Bad, will give you a warning and might even crash
-NSLog(@"%@", myButtonType);
-
-// Good, will properly print the value as an integer
-NSLog(@"%d", myButtonType);
 ```
 
 ###Flow control statements
@@ -550,3 +417,143 @@ typedef returnType (^TypeName)(parameterTypes);
 TypeName blockName = ^returnType(parameters) {...};
 ```
 
+##Class Specific
+
+###NSString
+
+####Quick examples
+```objC
+NSString *firstName = @"Clark"; 
+NSString *lastName = @"Kent"; 
+NSString *fullName = [NSString stringWithFormat:  @"My full name is %@ %@",  firstName, lastName]; 
+```
+
+####NSString format specifier
+
+Specifier | Description
+:---: | ---
+%@  | Objective-C object
+%zd | NSInteger
+%lx, (long) | CFIndex
+%tu | NSUInteger
+%i  | int
+%u  | unsigned int
+%hi  | short
+%hu  | unsigned short
+%%  | Literal %
+
+
+###NSArray
+
+####Quick examples
+```objC
+//Create an array
+NSMutableArray *anArray = [@[@"Clark Kent", @"Lois Lane"] mutableCopy];
+
+//Add new items
+[anArray addObject:@"Lex Luthor"];
+
+//Find array length
+NSLog(@"Array has %d items", [anArray count]); 
+
+//Iterate over array items
+for (NSString *person in anArray) { 
+ NSLog(@"Person: %@", person); 
+} 
+
+//Access item with index
+NSString *superman = anArray[0];
+
+//Remove Object @"Clark Kent"
+[anArray removeObject:@"Clark Kent"];
+        
+//Remove the first Object
+[anArray removeObjectAtIndex:0];
+```
+
+###NSDictionary
+
+####Quick examples
+```objC
+//Create a dictionary
+NSMutableDictionary *person = [@{
+                             @"firstname" : @"Clark",
+                             @"lastname" : @"Kent",
+                             @"age" : [NSNumber numberWithInt:35]
+                             } mutableCopy];
+    
+//Access values 
+NSLog(@"Superman's first name is %@", person[@"firstname"]);
+//or
+NSLog(@"Superman's first name is %@", [person objectForKey:@"firstname"]);
+
+//Find number of items in dicitonary
+[person count];
+
+// Add an object to a dictionary
+[person setObject:@"job" forKey:@"teacher"];
+    
+//Remove an object to a dictionary
+[person removeObjectForKey:@"firstname"];
+
+```
+
+##C References
+
+###Enumerated Types
+
+####Apple's Examples
+
+Each enumerate is given a corresponding integer value, so
+
+```objC
+typedef NS_ENUM(NSInteger, UIButtonType) {
+   UIButtonTypeCustom,
+   UIButtonTypeSystem,
+   UIButtonTypeDetailDisclosure,
+   UIButtonTypeInfoLight,
+   UIButtonTypeInfoDark,
+   UIButtonTypeContactAdd,
+   UIButtonTypeRoundedRect
+};
+```
+
+is the same as
+
+```objC
+typedef NS_ENUM(NSInteger, UIButtonType) {
+   UIButtonTypeCustom = 0,
+   UIButtonTypeSystem = 1,
+   UIButtonTypeDetailDisclosure = 2,
+   UIButtonTypeInfoLight = 3,
+   UIButtonTypeInfoDark = 4,
+   UIButtonTypeContactAdd = 5,
+   UIButtonTypeRoundedRect = 6
+};
+```
+
+Explicitly defining the first enumerate's value is not required and it will default to 0.
+
+####Using an enumerated type
+```objC
+UIButton *button = [UIButton buttonWithType:UIButtonTypeInfoLight];
+```
+
+Or create a variable to pass into the methods like so...
+
+```objC
+UIButtonType myButtonType = UIButtonTypeCustom;
+UIButton *myButton = [UIButton buttonWithType:myButtonType];
+```
+
+Because they are not objects, you must print enumerated types as integers
+
+```objC
+UIButtonType myButtonType = UIButtonTypeRoundedRect;
+
+// Bad, will give you a warning and might even crash
+NSLog(@"%@", myButtonType);
+
+// Good, will properly print the value as an integer
+NSLog(@"%d", myButtonType);
+```
