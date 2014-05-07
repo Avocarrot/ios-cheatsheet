@@ -16,13 +16,14 @@ A quick reference cheat sheet for iOS developers so that you turn coffee into co
 - [Delegates](#delegates)
 - [Blocks](#blocks)
 
-###Class Specific
+###Foundation Framework Classes
 - [NSString](#nsstring)
 - [NSArray](#nsarray)
 - [NSDictionary](#nsdictionary)
 
 ###C Related Code
 - [Enumerated Types](#enumerated-types)
+
 
 ##Objective-C Basics
 
