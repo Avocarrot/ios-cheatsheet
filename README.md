@@ -1,7 +1,7 @@
-iOS Cheatsheet
+Objective-C Cheatsheet
 ==============
 
-A quick reference cheat sheet for iOS developers so that you turn coffee into code much faster:) 
+A quick reference cheat sheet for Objective-C developers so that you turn coffee into code much faster:) 
 
 **Note**: The [Avocarrot](http://www.avocarrot.com/?utm_source=github&utm_medium=ios-cheatsheet) team will do its best to keep this cheatsheet updated but feel free to send your pull requests if you want to add a new entry or edit something.
 
@@ -60,6 +60,7 @@ A quick reference cheat sheet for iOS developers so that you turn coffee into co
 ####Creating an instance
 ```objC
 Human * anObject = [[Human alloc] init];
+Human * anObject = [Human new];
 ```
 
 
@@ -482,7 +483,7 @@ NSString *superman = anArray[0];
 NSMutableDictionary *person = [@{
                              @"firstname" : @"Clark",
                              @"lastname" : @"Kent",
-                             @"age" : [NSNumber numberWithInt:35]
+                             @"age" : @(35)
                              } mutableCopy];
     
 //Access values 
