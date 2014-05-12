@@ -172,15 +172,16 @@ Operator | Description
 
 Attribute Type | Purpose
 :---: | ---
-strong  | Creates an owning relationship to the object that is assigned to the property
-weak | Creates a non-owning relationship 
-assign | Normal assign, doesn’t perform any kind of memory-management
-copy | Make an immutable copy of the object upon assignment. 
-nonatomic |  Allows multiple threads to access the property simultaneously which makes it not threadsafe
-readwrite  | Generates both getter and setter 
+strong (iOS 4 = retain) (default)  | Creates an owning relationship to the object that is assigned to the property
+weak  (iOS 4 = unsafe_unretained) | Creates a non-owning relationship 
+assign (dafault) | Normal assign, doesn’t perform any kind of memory-management
+copy | Make an immutable copy of the object upon assignment
+atomic (default) | Only allows one thread to access the property, which makes it threadsafe
+nonatomic |  Allows multiple threads to access the property simultaneously, which makes it not threadsafe
+readwrite (default) | Generates both getter and setter 
 readonly | Generates only getter 
-getter=method | Use this to specify a different name for the property's getter method.
-setter=method | Use this to specify a different name for the property's setter method.
+getter=method | Use this to specify a different name for the property's getter method
+setter=method | Use this to specify a different name for the property's setter method
 
 ####Access Properties
 ```objC
