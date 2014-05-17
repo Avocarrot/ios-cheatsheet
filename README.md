@@ -1,12 +1,14 @@
 iOS Cheatsheet
 ==============
 
-A quick reference cheat sheet for iOS developers so that you turn coffee into code much faster:) 
+A quick reference cheat sheet for iOS developers so that you turn coffee into code much faster:)
 
-**Note**: The [Avocarrot](http://www.avocarrot.com/?utm_source=github&utm_medium=ios-cheatsheet) team will do its best to keep this cheatsheet updated but feel free to send your pull requests if you want to add a new entry or edit something.
+**Note**: The [Avocarrot](http:// www.avocarrot.com/?utm_source=github&utm_medium=ios-cheatsheet) team will do its best to keep this cheatsheet updated but feel free to send your pull requests if you want to add a new entry or edit something.
 
 ##Contents
+
 ###Objective-C Basics
+
 - [Classes](#classes)
 - [Methods](#methods)
 - [Operators](#operators)
@@ -17,11 +19,13 @@ A quick reference cheat sheet for iOS developers so that you turn coffee into co
 - [Blocks](#blocks)
 
 ###Foundation Framework Classes
+
 - [NSString](#nsstring)
 - [NSArray](#nsarray)
 - [NSDictionary](#nsdictionary)
 
 ###C Related Code
+
 - [Enumerated Types](#enumerated-types)
 
 
@@ -31,34 +35,35 @@ A quick reference cheat sheet for iOS developers so that you turn coffee into co
 
 ####Class header
 
-```objC
+```objc
 @interface Human : NSObject
 
-// Define properties and methds
+// Define properties and methods
 
 @end
 ```
 
 ####Class implementation
 
-```objC
-#import "Human.h" 
+```objc
+#import "Human.h"
 
-@interface Human () 
-// Define private properties and methods 
-@end 
- 
-@implementation Human { 
-// Define private instance variables 
-} 
- 
-// Provide method implementation code 
- 
-@end 
+@interface Human ()
+// Define private properties and methods
+@end
+
+@implementation Human {
+// Define private instance variables
+}
+
+// Provide method implementation code
+
+@end
 ```
 
 ####Creating an instance
-```objC
+
+```objc
 Human * anObject = [[Human alloc] init];
 ```
 
@@ -67,34 +72,35 @@ Human * anObject = [[Human alloc] init];
 
 ####Defining methods
 
-```objC
+```objc
 // Returns nothing and has no arguments
-- (void)foo;  
+- (void)foo;
 
-//Returns an NSString object and takes one argument of type NSObject 
-- (NSString *)fooWithArgument:(NSObject *)bar; 
+// Returns an NSString object and takes one argument of type NSObject
+- (NSString *)fooWithArgument:(NSObject *)bar;
 
-//Takes two arguments one of type NSObject and a second one of type NSString 
-- (void)fooWithArgument:(NSObject *)bar andArgument:(NSString *)baz; 
+// Takes two arguments one of type NSObject and a second one of type NSString
+- (void)fooWithArgument:(NSObject *)bar andArgument:(NSString *)baz;
 
 // Defines a class method (note the + sign)
 + (void)aClassMethod;
-```  
+```
 
 ####Implementing methods
 
-```objC
+```objc
 - (NSString *)fooWithArgument:(NSObject *)bar{
-    //Do something here
+    // Do something here
     return retValue;
 }
-``` 
+```
 
 ####Calling a method
-```objC
+
+```objc
 [anObject someMethod];
 [anObject someMethodWithArg1:arg1 andArg2:arg2];
-``` 
+```
 
 
 ### Operators
@@ -166,28 +172,30 @@ Operator | Description
 ###Properties
 
 ####Define properties
-```objC
+
+```objc
 @property (attribute1, attribute2) NSString *aProperty;
 ```
 
 Attribute Type | Purpose
 :---: | ---
 strong (iOS 4 = retain) (default)  | Creates an owning relationship to the object that is assigned to the property
-weak  (iOS 4 = unsafe_unretained) | Creates a non-owning relationship 
-assign (dafault) | Normal assign, doesn’t perform any kind of memory-management
+weak  (iOS 4 = unsafe_unretained) | Creates a non-owning relationship
+assign (default) | Normal assign, doesn’t perform any kind of memory-management
 copy | Make an immutable copy of the object upon assignment
 atomic (default) | Only allows one thread to access the property, which makes it threadsafe
 nonatomic |  Allows multiple threads to access the property simultaneously, which makes it not threadsafe
-readwrite (default) | Generates both getter and setter 
-readonly | Generates only getter 
+readwrite (default) | Generates both getter and setter
+readonly | Generates only getter
 getter=method | Use this to specify a different name for the property's getter method
 setter=method | Use this to specify a different name for the property's setter method
 
 ####Access Properties
-```objC
+
+```objc
 [anObject aProperty];
 
-//Alternative
+// Alternative
 anObject.aProperty
 ```
 
@@ -195,32 +203,37 @@ anObject.aProperty
 ###Constants
 
 ####Preprocessing Macros
+
 This is not an actual constant because it defines a macro which replaces all occurrences of ```MAX_NUMBER_OF_ITEMS``` with the actual value before compile time.
-```objC
+
+```objc
 #define MAX_NUMBER_OF_ITEMS 10
 ```
 
 ####Using const
+
 A better approach is to use ```const```.
-```objC
+```objc
 NSString *const kMyName = @"Clark";
 ```
 
 ####Static and extern
 
 If you know that the constant will only be available within it's implementation file, then you can use ```static```. Using ```static``` means that the constant will only be available in that file.
-```objC
+
+```objc
 static NSString * const kMyName = @"Clark";
 ```
 
-If you want to have a constant global then you should use extern. 
-```objC
-//.h file
+If you want to have a constant global then you should use extern.
+
+```objc
+// .h file
 extern NSString * const kMyName;
 ```
 
-```objC
-//.m file
+```objc
+// .m file
 NSString * const kMyName = @"Clark";
 ```
 
@@ -228,7 +241,7 @@ NSString * const kMyName = @"Clark";
 
 ####If-else statement
 
-```objC
+```objc
 if (someCondition) {
     // Execute if the condition is true
 } else if (someOtherCondition) {
@@ -240,13 +253,13 @@ if (someCondition) {
 
 ####Ternary operator
 
-```objC
+```objc
 someCondition ? @"True" : @"False";
 ```
 
 ####For Loops
 
-```objC
+```objc
 for (int i = 0; i < totalCount; i++) {
     // Do something here
 }
@@ -254,7 +267,7 @@ for (int i = 0; i < totalCount; i++) {
 
 ####While Loop
 
-```objC
+```objc
 while (someCondition) {
    // Do something here
 }
@@ -262,7 +275,7 @@ while (someCondition) {
 
 ####Do While Loop
 
-```objC
+```objc
 do {
     // Do something here
 } while (someCondition);
@@ -270,7 +283,7 @@ do {
 
 ####Switch
 
-```objC
+```objc
 switch (aLabel)
 {
     case kLabelA:
@@ -290,7 +303,7 @@ switch (aLabel)
 
 ###Delegates
 
-Delegates are a design pattern. A delegate allows one object to send messages to another object when an event happens. Check out [Apple docs](https://developer.apple.com/library/ios/documentation/general/conceptual/CocoaEncyclopedia/DelegatesandDataSources/DelegatesandDataSources.html): 
+Delegates are a design pattern. A delegate allows one object to send messages to another object when an event happens. Check out [Apple docs](https:// developer.apple.com/library/ios/documentation/general/conceptual/CocoaEncyclopedia/DelegatesandDataSources/DelegatesandDataSources.html):
 
 ####Become the delegate of a framework class
 
@@ -298,8 +311,8 @@ Delegates are a design pattern. A delegate allows one object to send messages to
 
 Declare that your class adopts the protocol in the class definition in the angled brackets after the class/superclass name.
 
-```objC
-//MyTableViewController.h
+```objc
+// MyTableViewController.h
 
 @interface MyTableViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
@@ -310,8 +323,8 @@ Declare that your class adopts the protocol in the class definition in the angle
 
 Set your object as the delegate.
 
-```objC
-//MyTableViewController.m
+```objc
+// MyTableViewController.m
 
 [tableView setDelegate:self];
 
@@ -329,7 +342,7 @@ Implement the delegate methods.
 
 Declare the protocol methods
 
-```objC
+```objc
 // Superman.h
 #import <Foundation/Foundation.h>
 
@@ -359,7 +372,7 @@ Declare the protocol methods
 
 Set the delegate object
 
-```objC
+```objc
 // Superman.m
 
 [self setDelegate:anObject];
@@ -369,7 +382,7 @@ Set the delegate object
 
 Start sending delegate messages
 
-```objC
+```objc
 // Superman.m
 
 [self.delegate fly];
@@ -377,7 +390,7 @@ Start sending delegate messages
 
 For the delegate methods that are optional, it is wise to check if the delegate can respond to that method before firing.
 
-```objC
+```objc
 if ([self.delegate respondsToSelector:@selector(eat)]) {
   [self.delegate eat];
 }
@@ -385,9 +398,9 @@ if ([self.delegate respondsToSelector:@selector(eat)]) {
 
 ### Blocks
 
-> Blocks are a language-level feature added to C, Objective-C and C++, which allow you to create distinct segments of code that can be passed around to methods or functions as if they were values. 
+> Blocks are a language-level feature added to C, Objective-C and C++, which allow you to create distinct segments of code that can be passed around to methods or functions as if they were values.
 
-For more information see [Programming with Objective-C - Working with Blocks](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/WorkingwithBlocks/WorkingwithBlocks.html)
+For more information see [Programming with Objective-C - Working with Blocks](https:// developer.apple.com/library/ios/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/WorkingwithBlocks/WorkingwithBlocks.html)
 
 
 **To declare a block local variable:**
@@ -416,7 +429,7 @@ returnType (^blockName)(parameterTypes) = ^returnType(parameters) {...};
 
 **To define a block type:**
 
-```
+```objc
 typedef returnType (^TypeName)(parameterTypes);
 TypeName blockName = ^returnType(parameters) {...};
 ```
@@ -426,10 +439,11 @@ TypeName blockName = ^returnType(parameters) {...};
 ###NSString
 
 ####Quick examples
-```objC
-NSString *firstName = @"Clark"; 
-NSString *lastName = @"Kent"; 
-NSString *fullName = [NSString stringWithFormat:  @"My full name is %@ %@",  firstName, lastName]; 
+
+```objc
+NSString *firstName = @"Clark";
+NSString *lastName = @"Kent";
+NSString *fullName = [NSString stringWithFormat:  @"My full name is %@ %@",  firstName, lastName];
 ```
 
 ####NSString format specifier
@@ -450,56 +464,57 @@ Specifier | Description
 ###NSArray
 
 ####Quick examples
-```objC
-//Create an array
+
+```objc
+// Create an array
 NSMutableArray *anArray = [@[@"Clark Kent", @"Lois Lane"] mutableCopy];
 
-//Add new items
+// Add new items
 [anArray addObject:@"Lex Luthor"];
 
-//Find array length
-NSLog(@"Array has %d items", [anArray count]); 
+// Find array length
+NSLog(@"Array has %d items", [anArray count]);
 
-//Iterate over array items
-for (NSString *person in anArray) { 
- NSLog(@"Person: %@", person); 
-} 
+// Iterate over array items
+for (NSString *person in anArray) {
+ NSLog(@"Person: %@", person);
+}
 
-//Access item with index
+// Access item with index
 NSString *superman = anArray[0];
 
-//Remove Object @"Clark Kent"
+// Remove Object @"Clark Kent"
 [anArray removeObject:@"Clark Kent"];
-        
-//Remove the first Object
+
+// Remove the first Object
 [anArray removeObjectAtIndex:0];
 ```
 
 ###NSDictionary
 
 ####Quick examples
-```objC
-//Create a dictionary
+
+```objc
+// Create a dictionary
 NSMutableDictionary *person = [@{
                              @"firstname" : @"Clark",
                              @"lastname" : @"Kent",
                              @"age" : [NSNumber numberWithInt:35]
                              } mutableCopy];
-    
-//Access values 
+
+// Access values
 NSLog(@"Superman's first name is %@", person[@"firstname"]);
-//or
+// or
 NSLog(@"Superman's first name is %@", [person objectForKey:@"firstname"]);
 
-//Find number of items in dicitonary
+// Find number of items in dictionary
 [person count];
 
 // Add an object to a dictionary
 [person setObject:@"job" forKey:@"teacher"];
-    
-//Remove an object to a dictionary
-[person removeObjectForKey:@"firstname"];
 
+// Remove an object to a dictionary
+[person removeObjectForKey:@"firstname"];
 ```
 
 ##C References
@@ -510,7 +525,7 @@ NSLog(@"Superman's first name is %@", [person objectForKey:@"firstname"]);
 
 Each enumerate is given a corresponding integer value, so
 
-```objC
+```objc
 typedef NS_ENUM(NSInteger, UIButtonType) {
    UIButtonTypeCustom,
    UIButtonTypeSystem,
@@ -524,7 +539,7 @@ typedef NS_ENUM(NSInteger, UIButtonType) {
 
 is the same as
 
-```objC
+```objc
 typedef NS_ENUM(NSInteger, UIButtonType) {
    UIButtonTypeCustom = 0,
    UIButtonTypeSystem = 1,
@@ -539,20 +554,21 @@ typedef NS_ENUM(NSInteger, UIButtonType) {
 Explicitly defining the first enumerate's value is not required and it will default to 0.
 
 ####Using an enumerated type
-```objC
+
+```objc
 UIButton *button = [UIButton buttonWithType:UIButtonTypeInfoLight];
 ```
 
 Or create a variable to pass into the methods like so...
 
-```objC
+```objc
 UIButtonType myButtonType = UIButtonTypeCustom;
 UIButton *myButton = [UIButton buttonWithType:myButtonType];
 ```
 
 Because they are not objects, you must print enumerated types as integers
 
-```objC
+```objc
 UIButtonType myButtonType = UIButtonTypeRoundedRect;
 
 // Bad, will give you a warning and might even crash
