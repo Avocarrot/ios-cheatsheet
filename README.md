@@ -23,6 +23,7 @@ A quick reference cheat sheet for iOS developers so that you turn coffee into co
 - [NSString](#nsstring)
 - [NSArray](#nsarray)
 - [NSDictionary](#nsdictionary)
+- [Objective-C Literals](#objective-c-literals)
 
 ###C Related Code
 
@@ -515,6 +516,36 @@ NSLog(@"Superman's first name is %@", [person objectForKey:@"firstname"]);
 
 // Remove an object to a dictionary
 [person removeObjectForKey:@"firstname"];
+```
+
+##Objective-C Literals
+
+**Available from LLVM Compiler version 4.0 made available with Xcode 4.4**
+
+###Strings
+```objc
+NSString *string = @"This is a string.";
+```
+
+###Numbers
+```objc
+NSNumber *number = @126;      // int          : Equal to [NSNumber numberWithInt:126];
+NSNumber *number = @126u;     // unsigned int : Equal to [NSNumber numberWithUnsignedInt:126u];
+NSNumber *number = @126l;     // long         : Equal to [NSNumber numberWithLong:126l];
+NSNumber *number = @126.544f; // float        : Equal to [NSNumber numberWithFloat:126.544f]
+NSNumber *number = @126.544;  // double       : Equal to [NSNumber numberWithDouble:126.544]
+NSNumber *number = @YES;      // bool         : Equal to [NSNumber numberWithBool:YES]
+```
+
+###Containers
+```objc
+NSArray *array = @[object1,object2,object3]; // Creating NSArray
+Object *object2 = array[1]; // Accessing NSArray
+mutableArray[1] = newObject; // Adding to NSMutableArray
+
+NSDictionary *dictionary = @{ @"key1" : object1, @"key2" : object2, @"key3" : object3 }; // Creating NSDictionary
+Object *object2 = dictionary[@"key2"]; // Accessing NSDictionary
+mutableDictionary[@"name"] = @"Henry"; // Adding to NSMutableDictionary
 ```
 
 ##C References
